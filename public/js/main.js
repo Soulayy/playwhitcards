@@ -4,7 +4,7 @@ let container = document.querySelector(".container1")
 
 console.log(container);
 
-let list = ["./public/img/card/spider1.jpg", "./public/img/card/spider2.jpg", "./public/img/card/spider3.jpg", "./public/img/card/spider4.jpg"]
+let list = ["./public/img/card/spider1.jpg", "./public/img/card/spider2.jpg", "./public/img/card/spider3.jpg", "./public/img/card/spider4.jpg", "./public/img/card/spider5.jpg", "./public/img/card/spider6.jpg"]
 
 
 let newlist
@@ -68,8 +68,7 @@ document.querySelectorAll("img").forEach(element => {
                                 element.classList.remove("done")
                             } 
                         });
-                        if (comp == 8) {
-                            //! mettre un msg de fin 
+                        if (comp == 12) {
                             let btnend = document.createElement("button")
                             btnend.innerText = "RESTART"
                             document.body.appendChild(btnend)
@@ -86,5 +85,3 @@ document.querySelectorAll("img").forEach(element => {
          
      })
 });
-
-    

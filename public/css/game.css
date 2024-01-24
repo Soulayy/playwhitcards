@@ -9,13 +9,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(25, 25, 25);
+    background: rgb(88,0,0);
+background: linear-gradient(257deg, rgba(88,0,0,1) 0%, rgba(0,8,79,1) 100%);
     flex-direction: column;
     gap: 15px;
 }
 
 .container1 {
-    width: 60%;
+    width: 80%;
     height: 750px;
     display: flex;
     justify-content: center;
@@ -35,7 +36,7 @@ img {
 }
 
 img:hover {
-    box-shadow: rgba(4, 38, 174, 0.56) 0px 22px 70px 4px;
+    box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px;
 }
 
 button {
@@ -47,3 +48,4 @@ button {
     border-radius: 30%;
     color: white;
 }
+
