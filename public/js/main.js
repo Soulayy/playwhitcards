@@ -1,3 +1,5 @@
+alert("Lance la musique avant de jouer ;) BONNE PARTIE !")
+
 let card 
 
 let container = document.querySelector(".container1")
