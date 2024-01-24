@@ -1,0 +1,36 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+}
+
+.container1 {
+    width: 60%;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 350px;
+    width: 201px;
+    background-image: url(./../img/card/couverture.jpg);
+    background-position: center;
+    border-radius: 30%;
+    border: 3px solid rgb(39, 39, 39);
+}
+
+.card:hover {
+    box-shadow: rgba(4, 38, 174, 0.56) 0px 22px 70px 4px;
+}
