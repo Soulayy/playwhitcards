@@ -1,53 +1,19 @@
-// let img = {
-//     src : ./../
-// }
 let card 
+
 let container = document.querySelector(".container1")
+
 console.log(container);
 
+let list = ["./public/img/card/spider1.jpg", "./public/img/card/spider2.jpg", "./public/img/card/spider3.jpg", "./public/img/card/spider4.jpg"]
 
-let spider1 = {
-    id : "1",
-    src : "./public/img/card/spider1.jpg",
-}
-let spider2 = {
-    id : "2",
-    src : "./public/img/card/spider2.jpg"
-}
-let spider3 = {
-    id : "3",
-    src : "./public/img/card/spider3.jpg"
-}
-let spider4 = {
-    id : "4",
-    src : "./public/img/card/spider4.jpg"
-}
-let spider11 = {
-    id : "1",
-    src : "./public/img/card/spider1.jpg",
-}
-let spider22 = {
-    id : "2",
-    src : "./public/img/card/spider2.jpg"
-}
-let spider33 = {
-    id : "3",
-    src : "./public/img/card/spider3.jpg"
-}
-let spider44 = {
-    id : "4",
-    src : "./public/img/card/spider4.jpg"
-    
-}
 
-// let list = [spider1.src, spider2.src, spider3.src, spider4.src, spider11.src, spider22.src, spider33.src, spider44.src,]
-let list = [spider1, spider2, spider3, spider4, spider11, spider22, spider33, spider44];
+let newlist
 
-// Fonction pour mélanger la liste
 function shuffleList(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+    newlist = array.concat(array)
+    for (let i = newlist.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [newlist[i], newlist[j]] = [newlist[j], newlist[i]];
   }
 }
 
@@ -58,41 +24,63 @@ shuffleList(list);
 
 // let newlist= []
 
-list.forEach(element => {
-
-    // newlist.push(element)
-    for (let i = 0; i < 1; i++) {
+newlist.forEach((element, i) => {
     card = document.createElement("img")
-    card.setAttribute("class", "card")
-    card.setAttribute("id", "")
-    card.id = element.id
     container.appendChild(card)
-    
-
+    // card.src = element
+    card.id = i.toString()
 }
-});
+);
+
+function none() {
+    document.querySelectorAll("img").forEach(element => {
+        element.src = "./public/img/card/couverture.jpg"
+    });
+}
+
+none()
+
 
 let recup = document.querySelectorAll("img")
 
 console.log(recup);
 
 let controle = []
-
-recup.forEach(element => {
+let comp = 0
+document.querySelectorAll("img").forEach(element => {
     element.addEventListener("click", () => {
-        controle.push(element)
-        if (controle.length == 2) {
-            element.src = element.src
-
-            if (controle[0].id == controle[1].id) {
-                alert("BJ")
-                controle.pop()
-                controle.pop()
-            } else {
-                controle[0].id = ""
-                controle[1].id = ""
-                controle.pop()
-                controle.pop()
+        
+        if (element.src.includes("couverture") && controle.length < 3) {
+            element.src = newlist[parseInt(element.id)]
+            controle.push(element)
+            console.log(controle);
+            if (controle.length == 2) {
+                setTimeout(() => {
+                    if (controle[0].src != controle[1].src) {
+                        controle[0].src = "./public/img/card/couverture.jpg"
+                        controle[1].src = "./public/img/card/couverture.jpg"
+                    } else {
+                        controle[0].className = "done"
+                        controle[1].className = "done"
+                        document.querySelectorAll("img").forEach(element => {
+                            if (element.classList.contains("done")) {
+                                comp++
+                                element.classList.remove("done")
+                            } 
+                        });
+                        if (comp == 8) {
+                            //! mettre un msg de fin 
+                            let btnend = document.createElement("button")
+                            btnend.innerText = "RESTART"
+                            document.body.appendChild(btnend)
+                            btnend.addEventListener("click", () => {
+                                location.reload()
+                            })
+                        }
+                    }
+                    controle = []
+                }, 300);
+                
             }
         } 
          
